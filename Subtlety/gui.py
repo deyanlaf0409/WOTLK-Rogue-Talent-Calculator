@@ -34,6 +34,11 @@ window = tk.Tk()
 window.title("Button Grid")
 
 # Define the images for each button
+image1 = ImageTk.PhotoImage(Image.open("Images/ability_warrior_decisivestrike.jpg"))
+image2 = ImageTk.PhotoImage(Image.open("Images/spell_shadow_charm.jpg"))
+image3 = ImageTk.PhotoImage(Image.open("Images/ability_warrior_warcry.jpg"))
+image4 = ImageTk.PhotoImage(Image.open("Images/ability_rogue_feint.jpg"))
+image5 = ImageTk.PhotoImage(Image.open("Images/ability_sap.jpg"))
 image6 = ImageTk.PhotoImage(Image.open("Images/ability_stealth.jpg"))
 
 # Create a grid of buttons
@@ -45,7 +50,17 @@ for row in range(ROWS):
         frame.grid(row=row, column=col, padx=5, pady=5)
 
         # Create the button
-        if row == 1 and col == 2:
+        if row == 0 and col == 0:
+            button = tk.Button(frame, image=image1, width=50, height=50)
+        elif row == 0 and col == 1:
+            button = tk.Button(frame, image=image2, width=50, height=50)
+        elif row == 0 and col == 2:
+            button = tk.Button(frame, image=image3, width=50, height=50)
+        elif row == 1 and col == 0:
+            button = tk.Button(frame, image=image4, width=50, height=50)
+        elif row == 1 and col == 1:
+            button = tk.Button(frame, image=image5, width=50, height=50)
+        elif row == 1 and col == 2:
             button = tk.Button(frame, image=image6, width=50, height=50)
         else:
             button = tk.Button(frame, width=6, height=3)
