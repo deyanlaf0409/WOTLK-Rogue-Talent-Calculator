@@ -1,37 +1,19 @@
 from tkinter import *
 import tkinter as tk
 from PIL import ImageTk, Image
-ROWS = 11
-COLS = 4
-AVAILABLE_POINTS = 80
-
-# Define a function to update the button counter
-def update_counter(button):
-    global total_points, AVAILABLE_POINTS, available_points_label
-
-    # Get the current counter value from the counter label widget
-    count = int(button.counter["text"])
-
-    # If total points exceed the maximum, prevent further increment
-    if total_points >= 80:
-        return
-
-    # Increment the counter value
-    count += 1
-
-    # Update the counter label widget to show the new counter value
-    button.counter["text"] = str(count)
-
-    # Update the total points
-    total_points += 1
-    AVAILABLE_POINTS -= 1
-
-    available_points_label.config(text=f"Available Points: {AVAILABLE_POINTS}")
+from Src.points_count import *
 
 
 # Create a window
 window = tk.Tk()
 window.title("Button Grid")
+background_clr = '#1a1a1a'
+button_clr = '#0d0d0d'
+window['background'] = background_clr
+
+# Create a label for displaying the available points
+available_points_label = tk.Label(window, text=f"Available Points: {AVAILABLE_POINTS}")
+available_points_label.grid(row=ROWS + 1, column=0, columnspan=COLS)
 
 # Define the images for each button
 image1 = ImageTk.PhotoImage(Image.open("Images/ability_warrior_decisivestrike.jpg"))
@@ -46,27 +28,27 @@ total_points = 0
 for row in range(ROWS):
     for col in range(COLS):
         # Create a frame to hold the button and counter
-        frame = tk.Frame(window, width=50, height=50)
+        frame = tk.Frame(window, width=50, height=50, bg=background_clr)
         frame.grid(row=row, column=col, padx=5, pady=5)
 
         # Create the button
         if row == 0 and col == 0:
-            button = tk.Button(frame, image=image1, width=50, height=50)
+            button = tk.Button(frame, image=image1, width=50, height=50, bg=button_clr)
         elif row == 0 and col == 1:
-            button = tk.Button(frame, image=image2, width=50, height=50)
+            button = tk.Button(frame, image=image2, width=50, height=50, bg=button_clr)
         elif row == 0 and col == 2:
-            button = tk.Button(frame, image=image3, width=50, height=50)
+            button = tk.Button(frame, image=image3, width=50, height=50, bg=button_clr)
         elif row == 1 and col == 0:
-            button = tk.Button(frame, image=image4, width=50, height=50)
+            button = tk.Button(frame, image=image4, width=50, height=50, bg=button_clr)
         elif row == 1 and col == 1:
-            button = tk.Button(frame, image=image5, width=50, height=50)
+            button = tk.Button(frame, image=image5, width=50, height=50, bg=button_clr)
         elif row == 1 and col == 2:
-            button = tk.Button(frame, image=image6, width=50, height=50)
+            button = tk.Button(frame, image=image6, width=50, height=50, bg=button_clr)
         else:
-            button = tk.Button(frame, width=6, height=3)
+            button = tk.Button(frame, width=6, height=3, bg=button_clr)
 
-        button.pack(side=tk.LEFT, padx=5)
-        button.config(command=lambda btn=button: update_counter(btn))
+        button.pack(side=tk.LEFT)
+        button.config(command=lambda btn=button: update_counter(btn, available_points_label))
 
         # Create the counter label
         counter = tk.Label(frame, text="0", width=2, height=1, bg="gray", fg="white")
@@ -75,9 +57,9 @@ for row in range(ROWS):
         # Associate the counter label widget with the button widget
         button.counter = counter
 
-# Create a label for displaying the available points
-available_points_label = tk.Label(window, text=f"Available Points: {AVAILABLE_POINTS}")
-available_points_label.grid(row=ROWS+1, column=0, columnspan=COLS)
+    # Create a label for displaying the available points
+    #available_points_label = tk.Label(window, text=f"Available Points: {AVAILABLE_POINTS}")
+    #available_points_label.grid(row=ROWS + 1, column=0, columnspan=COLS)
 
 # Start the main event loop
 window.mainloop()
