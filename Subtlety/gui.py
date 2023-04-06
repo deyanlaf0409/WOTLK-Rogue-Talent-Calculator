@@ -1,6 +1,6 @@
 from tkinter import *
 import tkinter as tk
-from PIL import ImageTk, Image #test
+from PIL import ImageTk, Image
 ROWS = 11
 COLS = 4
 AVAILABLE_POINTS = 80
