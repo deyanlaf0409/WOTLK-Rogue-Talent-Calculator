@@ -1,6 +1,6 @@
 ROWS = 11
 COLS = 4
-AVAILABLE_POINTS = 80
+AVAILABLE_POINTS = 71
 total_points = 0
 
 
@@ -27,3 +27,4 @@ def update_counter(button, available_points_label, row):
     # Update the counter label widget to show the new counter value
     button.counter["text"] = f"{count}/{max_count}"
     available_points_label.config(text=f"Available Points: {AVAILABLE_POINTS}")
+

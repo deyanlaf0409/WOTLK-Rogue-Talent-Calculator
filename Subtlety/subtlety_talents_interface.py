@@ -1,7 +1,8 @@
 import tkinter as tk
+from tktooltip import ToolTip
 from PIL import ImageTk, Image
+from Descriptions import dictionaries
 from Src.points_count import *
-
 
 # Create a window
 window = tk.Tk()
@@ -9,10 +10,6 @@ window.title("Button Grid")
 background_clr = '#1a1a1a'
 button_clr = '#0d0d0d'
 window['background'] = background_clr
-
-# Create a label for displaying the available points
-available_points_label = tk.Label(window, text=f"Available Points: {AVAILABLE_POINTS}")
-available_points_label.grid(row=ROWS, column=0, columnspan=COLS)
 
 # Define the images for each button
 image_1 = ImageTk.PhotoImage(Image.open("Images/ability_warrior_decisivestrike.jpg"))
@@ -28,28 +25,35 @@ image_10 = ImageTk.PhotoImage(Image.open("Images/spell_nature_mirrorimage.jpg"))
 image_11 = ImageTk.PhotoImage(Image.open("Images/spell_shadow_fumble.jpg"))
 image_12 = ImageTk.PhotoImage(Image.open("Images/ability_rogue_ambush.jpg"))
 
+
+# Create a label for displaying the available points
+available_points_label = tk.Label(window, text=f"Available Points: {AVAILABLE_POINTS}")
+available_points_label.grid(row=ROWS, column=0, columnspan=COLS)
+
+
 # Create a grid of buttons
-total_points = 0
 for row in range(ROWS):
     for col in range(COLS):
         # Create a frame to hold the button and counter
         frame = tk.Frame(window, width=50, height=50, bg=background_clr)
         frame.grid(row=row, column=col, padx=5, pady=5)
 
-
         # Create the button
         if row == 0 and col == 0:
             button = tk.Button(frame, image=image_1, width=50, height=50, bg=button_clr)
+            info = ToolTip(button, msg=dictionaries.description1[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/5", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
         elif row == 0 and col == 1:
             button = tk.Button(frame, image=image_2, width=50, height=50, bg=button_clr)
+            info = ToolTip(button, msg=dictionaries.description2[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/3", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
         elif row == 0 and col == 2:
             button = tk.Button(frame, image=image_3, width=50, height=50, bg=button_clr)
+            info = ToolTip(button, msg=dictionaries.description3[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/2", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
