@@ -6,8 +6,8 @@ description1 = {1: "Relentless Strikes	Rank 1\nYour finishing moves have a 4% ch
                 5: "Relentless Strikes	Rank 5\nYour finishing moves have a 20% chance per combo point to restore 25 energy."}
 
 description2 = {1: "Master of Deception	Rank 1\nReduces the chance enemies have to detect you while in Stealth mode.",
-                2: "Master of Deception	Rank 2\nReduces the chance enemies have to detect you while in Stealth mode. More effective than Master of Deception (Rank 1).",
-                3: "Master of Deception	Rank 3\nReduces the chance enemies have to detect you while in Stealth mode. More effective than Master of Deception (Rank 2)."}
+                2: "Master of Deception	Rank 2\nReduces the chance enemies have to detect you while in Stealth mode.\nMore effective than Master of Deception (Rank 1).",
+                3: "Master of Deception	Rank 3\nReduces the chance enemies have to detect you while in Stealth mode.\nMore effective than Master of Deception (Rank 2)."}
 
 description3 = {1: "Opportunity	Rank 1\nIncreases the damage dealt with your Backstab, Mutilate, Garrote and Ambush abilities by 10%.",
                 2: "Opportunity	Rank 2\nIncreases the damage dealt with your Backstab, Mutilate, Garrote and Ambush abilities by 20%."}

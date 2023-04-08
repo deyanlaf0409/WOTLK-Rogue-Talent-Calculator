@@ -2,9 +2,10 @@ ROWS = 11
 COLS = 4
 AVAILABLE_POINTS = 71
 total_points = 0
+from Subtlety.Descriptions import dictionaries
 
 
-def update_counter(button, available_points_label, row):
+def update_counter(button, available_points_label, row, desc):
     global total_points, AVAILABLE_POINTS
     # print(row)
     row_required_points = row * 5
@@ -26,5 +27,6 @@ def update_counter(button, available_points_label, row):
 
     # Update the counter label widget to show the new counter value
     button.counter["text"] = f"{count}/{max_count}"
+    button.info.msg = desc[count]
     available_points_label.config(text=f"Available Points: {AVAILABLE_POINTS}")
 

@@ -29,8 +29,7 @@ image_12 = ImageTk.PhotoImage(Image.open("Images/ability_rogue_ambush.jpg"))
 # Create a label for displaying the available points
 available_points_label = tk.Label(window, text=f"Available Points: {AVAILABLE_POINTS}")
 available_points_label.grid(row=ROWS, column=0, columnspan=COLS)
-
-
+desc = dictionaries
 # Create a grid of buttons
 for row in range(ROWS):
     for col in range(COLS):
@@ -41,22 +40,28 @@ for row in range(ROWS):
         # Create the button
         if row == 0 and col == 0:
             button = tk.Button(frame, image=image_1, width=50, height=50, bg=button_clr)
-            info = ToolTip(button, msg=dictionaries.description1[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
+            desc = dictionaries.description1
+            info = ToolTip(button, msg=desc[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/5", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
+            button.info = info
         elif row == 0 and col == 1:
             button = tk.Button(frame, image=image_2, width=50, height=50, bg=button_clr)
-            info = ToolTip(button, msg=dictionaries.description2[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
+            desc = dictionaries.description2
+            info = ToolTip(button, msg=desc[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/3", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
+            button.info = info
         elif row == 0 and col == 2:
             button = tk.Button(frame, image=image_3, width=50, height=50, bg=button_clr)
-            info = ToolTip(button, msg=dictionaries.description3[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
+            desc = dictionaries.description3
+            info = ToolTip(button, msg=desc[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/2", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
+            button.info = info
         elif row == 1 and col == 0:
             button = tk.Button(frame, image=image_4, width=50, height=50, bg=button_clr)
             counter = tk.Label(frame, text="0/2", width=2, height=1, bg="gray", fg="white")
@@ -106,7 +111,7 @@ for row in range(ROWS):
             button = tk.Button(frame, width=6, height=3, bg=button_clr)
 
         button.pack(side=tk.LEFT)
-        button.config(command=lambda row=row, btn=button: update_counter(btn, available_points_label, row))
+        button.config(command=lambda row=row, desc=desc, btn=button: update_counter(btn, available_points_label, row, desc))
 
 
 # Start the main event loop
