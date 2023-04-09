@@ -1,7 +1,7 @@
 import tkinter as tk
 from tktooltip import ToolTip
 from PIL import ImageTk, Image
-from Descriptions import dictionaries
+from Subtlety_descriptions import dictionaries
 from Src.points_count import *
 
 # Create a window
@@ -64,19 +64,28 @@ for row in range(ROWS):
             button.info = info
         elif row == 1 and col == 0:
             button = tk.Button(frame, image=image_4, width=50, height=50, bg=button_clr)
+            desc = dictionaries.description4
+            info = ToolTip(button, msg=desc[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/2", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
+            button.info = info
         elif row == 1 and col == 1:
             button = tk.Button(frame, image=image_5, width=50, height=50, bg=button_clr)
+            desc = dictionaries.description5
+            info = ToolTip(button, msg=desc[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/2", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
+            button.info = info
         elif row == 1 and col == 2:
             button = tk.Button(frame, image=image_6, width=50, height=50, bg=button_clr)
+            desc = dictionaries.description6
+            info = ToolTip(button, msg=desc[1], parent_kwargs={"bg": "black"}, fg="#ffffff", bg="#1c1c1c")
             counter = tk.Label(frame, text="0/3", width=2, height=1, bg="gray", fg="white")
             counter.pack(side=tk.RIGHT, anchor="se")
             button.counter = counter
+            button.info = info
         elif row == 2 and col == 0:
             button = tk.Button(frame, image=image_7, width=50, height=50, bg=button_clr)
             counter = tk.Label(frame, text="0/2", width=2, height=1, bg="gray", fg="white")
@@ -111,8 +120,9 @@ for row in range(ROWS):
             button = tk.Button(frame, width=6, height=3, bg=button_clr)
 
         button.pack(side=tk.LEFT)
-        button.config(command=lambda row=row, desc=desc, btn=button: update_counter(btn, available_points_label, row, desc))
+        button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event, btn, available_points_label, row, desc))
 
+        button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event, row, desc, available_points_label))
 
 # Start the main event loop
 window.mainloop()
