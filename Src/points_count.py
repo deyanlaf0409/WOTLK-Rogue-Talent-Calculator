@@ -2,6 +2,7 @@
 ROWS = 11
 COLS = 4
 total_points = 0
+GUI_LIST = []
 
 
 class SharedData:
@@ -16,6 +17,10 @@ class SharedData:
 
 
 shared_data = SharedData(71)
+
+def update_available_points_label(new_value):
+    for gui in GUI_LIST:
+        gui.available_points_label.config(text=f"Available Points: {new_value}")
 
 
 def increase_counter(event, button, available_points_label, row, desc):
@@ -38,7 +43,7 @@ def increase_counter(event, button, available_points_label, row, desc):
 
     # Update the counter label widget to show the new counter value
     button.counter["text"] = f"{count}/{max_count}"
-    available_points_label.config(text=f"Available Points: {shared_data.AVAILABLE_POINTS}")
+    update_available_points_label(shared_data.AVAILABLE_POINTS)
     button.info.msg = desc[count]
 
 
@@ -63,5 +68,5 @@ def decrement_counter(event, row,  desc, available_points_label):
         return
 
     button.counter["text"] = f"{count}/{max_count}"
-    available_points_label.config(text=f"Available Points: {shared_data.AVAILABLE_POINTS}")
+    update_available_points_label(shared_data.AVAILABLE_POINTS)
     button.info.msg = desc[count]

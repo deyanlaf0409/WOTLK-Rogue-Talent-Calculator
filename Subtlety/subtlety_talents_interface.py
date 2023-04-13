@@ -53,3 +53,4 @@ class SubtletyGUI:
                 button.pack(side=LEFT)
                 button.bind("<Button-1>", lambda event, row=row, desc=self.desc, btn=button: increase_counter(event, btn, self.available_points_label, row, self.desc))
                 button.bind("<Button-3>", lambda event, row=row, desc=self.desc: decrement_counter(event, row, self.desc, self.available_points_label))
+                GUI_LIST.append(self)
