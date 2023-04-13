@@ -2,7 +2,7 @@
 from tkinter import *
 from tktooltip import ToolTip
 from PIL import ImageTk, Image
-from Src.points_count import AVAILABLE_POINTS, ROWS, COLS, increase_counter, decrement_counter
+from Src.points_count import *
 from Combat.resources import dictionaries
 
 
@@ -17,7 +17,7 @@ class CombatGUI:
         self.image_1 = ImageTk.PhotoImage(Image.open(self.path + "ability_gouge.jpg"))
 
         # Create a label for displaying the available points
-        self.available_points_label = Label(parent, text=f"Available Points: {AVAILABLE_POINTS}")
+        self.available_points_label = Label(parent, text=f"Available Points: {shared_data.AVAILABLE_POINTS}")
         self.available_points_label.grid(row=ROWS, column=0, columnspan=COLS)
 
         # Create a grid of buttons
