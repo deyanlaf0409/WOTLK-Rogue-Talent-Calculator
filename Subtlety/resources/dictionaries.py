@@ -22,14 +22,14 @@ description6 = {1: "Camouflage      Rank 1\nIncreases your speed while stealthed
                 2: "Camouflage      Rank 2\nIncreases your speed while stealthed by 10% and\nreduces the cooldown of your Stealth ability by 4\nsec",
                 3: "Camouflage      Rank 3\nIncreases your speed while stealthed by 15% and\nreduces the cooldown of your Stealth ability by 6\nsec"}
 
-description7 = {1: "",
-                2: ""}
+description7 = {1: "Elusiveness      Rank 1\nReduces the cooldown of your Vanish and Blind\nabilities by 30 sec and your Cloak of Shadows\nability by 15 sec.",
+                2: "Elusiveness      Rank 2\nReduces the cooldown of your Vanish and Blind\nabilities by 60 sec and your Cloak of Shadows\nability by 30 sec."}
 
-description8 = {1: "",
-                2: ""}
+description8 = {1: "Ghostly Strike\n40 Energy      Melee Range\nInstant      20 sec cooldown\nRequires Melee Weapon\nA strike that deals 125% weapon damage (180%\nif a dagger is equipped) and increases your\nchance to dodge by 15% for 7 sec. Awards 1\ncombo point."}
 
-description9 = {1: "",
-                2: ""}
+description9 = {1: "Serrated Blades      Rank 1\nCauses your attacks to ignore up to 3% of your\ntarget's Armor and increases the damage dealt\nby your Rupture ability by 10%.",
+                2: "Serrated Blades      Rank 2\nCauses your attacks to ignore up to 6% of your\ntarget's Armor and increases the damage dealt\nby your Rupture ability by 20%.",
+                3: "Serrated Blades      Rank 3\nCauses your attacks to ignore up to 9% of your\ntarget's Armor and increases the damage dealt\nby your Rupture ability by 30%."}
 
 description10 = {1: "",
                  2: ""}
