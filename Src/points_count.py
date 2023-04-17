@@ -70,3 +70,8 @@ def decrement_counter(event, row,  desc, available_points_label):
     button.counter["text"] = f"{count}/{max_count}"
     update_available_points_label(shared_data.AVAILABLE_POINTS)
     button.info.msg = desc[count]
+
+
+
+
+
