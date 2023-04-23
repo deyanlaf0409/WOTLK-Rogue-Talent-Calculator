@@ -21,6 +21,7 @@ def reset_counters():
 
 
 def reset():
+    global AVAILABLE_POINTS, total_points
     AVAILABLE_POINTS = 71
     total_points = 0
     update_available_points_label(AVAILABLE_POINTS)

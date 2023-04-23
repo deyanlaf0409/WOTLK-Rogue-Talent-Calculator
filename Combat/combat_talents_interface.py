@@ -3,7 +3,7 @@ from shared_data import *
 from tktooltip import ToolTip
 from PIL import ImageTk, Image
 from Combat.resources import dictionaries
-from Src.points_count import increase_counter, decrement_counter
+from points_count import increase_counter, decrement_counter
 
 
 class CombatGUI:
