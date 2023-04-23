@@ -1,12 +1,9 @@
-from tkinter import Tk, Toplevel, Button
-from Combat import combat_talents_interface
-from Subtlety import subtlety_talents_interface
-from Assassination import assassination_talents_interface
+from shared_data import *
+from tkinter import Toplevel
+from Combat.combat_talents_interface import CombatGUI
+from Subtlety.subtlety_talents_interface import SubtletyGUI
+from Assassination.assassination_talents_interface import AssassinationGUI
 
-root = Tk()
-root.title("Control Panel")
-root.configure(background='#1a1a1a')
-root.geometry("300x200")
 
 # Create the windows
 subtlety_window = Toplevel(root)
@@ -19,11 +16,12 @@ combat_window.geometry("400x800+400+0")
 assassination_window.geometry("400x800+0+0")
 
 # Create the GUI objects and pass in the windows
-subtlety_gui = subtlety_talents_interface.SubtletyGUI(subtlety_window)
-combat_gui = combat_talents_interface.CombatGUI(combat_window)
-assassination_gui = assassination_talents_interface.AssassinationGUI(assassination_window)
+subtlety_gui = SubtletyGUI(subtlety_window)
+combat_gui = CombatGUI(combat_window)
+assassination_gui = AssassinationGUI(assassination_window)
 
 root.mainloop()
+
 
 
 

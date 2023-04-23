@@ -1,9 +1,9 @@
-# AssassinationGUI
 from tkinter import *
+from shared_data import *
 from tktooltip import ToolTip
 from PIL import ImageTk, Image
-from Src.points_count import *
 from Assassination.resources import dictionaries
+from Src.points_count import increase_counter, decrement_counter
 
 
 class AssassinationGUI:
@@ -15,14 +15,10 @@ class AssassinationGUI:
 
         self.path = "Assassination/resources/images/"
         self.images = []
+        self.buttons = []
         for filename in ["ability_rogue_eviscerate.jpg", "ability_fiegndead.jpg", "ability_racial_bloodrage.jpg",
                          "ability_druid_disembowel.jpg", "ability_rogue_bloodsplatter.jpg", "ability_backstab.jpg"]:
             self.images.append(ImageTk.PhotoImage(Image.open(self.path + filename)))
-
-
-        # Create a label for displaying the available points
-        self.available_points_label = Label(parent, text=f"Available Points: {shared_data.AVAILABLE_POINTS}")
-        self.available_points_label.grid(row=ROWS, column=0, columnspan=COLS)
 
         # Create a grid of buttons
         for row in range(ROWS):
@@ -84,8 +80,8 @@ class AssassinationGUI:
                     button = Button(frame, width=6, height=3, bg='#0d0d0d')
 
                 button.pack(side=LEFT)
-                button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event, btn, self.available_points_label, row, desc))
-                button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event, row, desc, self.available_points_label))
+                button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event, btn, row, desc, self.buttons))
+                button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event, row, desc))
                 GUI_LIST.append(self)
 
 
