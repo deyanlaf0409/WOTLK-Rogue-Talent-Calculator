@@ -16,6 +16,8 @@ class CombatGUI:
         self.path = "Combat/resources/images/"
         self.images = []
         self.buttons = []
+        self.id = "Combat"
+        self.points = 0
         for filename in ["ability_gouge.jpg", "spell_shadow_ritualofsacrifice.jpg", "ability_dualwield.jpg",
                          "ability_rogue_slicedice.jpg", "ability_parry.jpg", "ability_marksmanship.jpg"]:
             self.images.append(ImageTk.PhotoImage(Image.open(self.path + filename)))
@@ -80,8 +82,8 @@ class CombatGUI:
                     button = Button(frame, width=6, height=3, bg='#0d0d0d')
 
                 button.pack(side=LEFT)
-                button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event, btn, row, desc, self.buttons))
-                button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event, row, desc))
+                button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event, btn, row, desc, self.buttons, self.id))
+                button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event, row, desc, self.id))
                 GUI_LIST.append(self)
 
 

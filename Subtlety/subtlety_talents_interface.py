@@ -16,6 +16,8 @@ class SubtletyGUI:
         self.path = "Subtlety/resources/images/"
         self.images = []
         self.buttons = []
+        self.id = "Subtlety"
+        self.points = 0
         for filename in ["ability_warrior_decisivestrike.jpg", "spell_shadow_charm.jpg", "ability_warrior_warcry.jpg",
                          "ability_rogue_feint.jpg", "ability_sap.jpg", "ability_stealth.jpg",
                          "spell_magic_lesserinvisibilty.jpg", "spell_shadow_curse.jpg", "inv_sword_17.jpg",
@@ -106,7 +108,7 @@ class SubtletyGUI:
                     button = Button(frame, width=6, height=3, bg='#0d0d0d')
 
                 button.pack(side=LEFT)
-                button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event, btn, row, desc, self.buttons))
-                button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event, row, desc))
+                button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event, btn, row, desc, self.buttons, self.id))
+                button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event, row, desc, self.id))
                 GUI_LIST.append(self)
 

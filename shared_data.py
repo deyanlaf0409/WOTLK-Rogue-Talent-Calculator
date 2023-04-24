@@ -4,7 +4,6 @@ from tkinter import Tk, Label, Button
 ROWS = 11
 COLS = 4
 AVAILABLE_POINTS = 71
-total_points = 0
 GUI_LIST = []
 
 
@@ -14,6 +13,7 @@ def update_available_points_label(new_value):
 
 def reset_counters():
     for gui in GUI_LIST:
+        gui.points = 0
         for button in gui.buttons:
             count = int(button.counter["text"].split('/')[0])
             max_count = int(button.counter["text"].split('/')[1])
@@ -23,7 +23,6 @@ def reset_counters():
 def reset():
     global AVAILABLE_POINTS, total_points
     AVAILABLE_POINTS = 71
-    total_points = 0
     update_available_points_label(AVAILABLE_POINTS)
     reset_counters()
 

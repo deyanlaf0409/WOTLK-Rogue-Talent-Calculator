@@ -1,8 +1,21 @@
 import shared_data
 
 
-def increase_counter(event, button, row, desc, buttons):
+def increase_counter(event, button, row, desc, buttons, id):
     button = event.widget
+    obj = 0
+    for gui in shared_data.GUI_LIST:
+        if gui.id == id:
+            obj = gui
+            break
+        elif gui.id == id:
+            obj = gui
+            break
+        elif gui.id == id:
+            obj = gui
+            break
+
+
 
     # Get the current counter value from the counter label widget
     count = int(button.counter["text"].split('/')[0])
@@ -10,8 +23,8 @@ def increase_counter(event, button, row, desc, buttons):
 
     # If there are available points and the row points are less than or equal to the available points,
     # and the total points is greater than or equal to the required points for the current row, increment the counter
-    if shared_data.AVAILABLE_POINTS > 0 and shared_data.total_points >= (row*5) and count < max_count:
-        shared_data.total_points += 1
+    if shared_data.AVAILABLE_POINTS > 0 and obj.points >= (row*5) and count < max_count:
+        obj.points += 1
         shared_data.AVAILABLE_POINTS -= 1
         count += 1
         buttons.append(button)
@@ -25,7 +38,19 @@ def increase_counter(event, button, row, desc, buttons):
 
 
 
-def decrement_counter(event, row,  desc):
+def decrement_counter(event, row,  desc, id):
+    obj = 0
+    for gui in shared_data.GUI_LIST:
+        if gui.id == id:
+            obj = gui
+            break
+        elif gui.id == id:
+            obj = gui
+            break
+        elif gui.id == id:
+            obj = gui
+            break
+
     # Get the button that was clicked
     button = event.widget
     count = int(button.counter["text"].split('/')[0])
@@ -36,7 +61,7 @@ def decrement_counter(event, row,  desc):
     # Decrement the counter if it's greater than zero
     if int(count) > 0:
         new_value = str(int(count) - 1) + button.counter["text"][1:]
-        shared_data.total_points -= 1
+        obj.points -= 1
         shared_data.AVAILABLE_POINTS += 1
         count -= 1
         button.counter.config(text=new_value)
