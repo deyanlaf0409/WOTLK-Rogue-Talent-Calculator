@@ -21,25 +21,3 @@ combat_gui = CombatGUI(combat_window)
 assassination_gui = AssassinationGUI(assassination_window)
 
 root.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

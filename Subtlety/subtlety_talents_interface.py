@@ -108,7 +108,10 @@ class SubtletyGUI:
                     button = Button(frame, width=6, height=3, bg='#0d0d0d')
 
                 button.pack(side=LEFT)
-                button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event, btn, row, desc, self.buttons, self.id))
-                button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event, row, desc, self.id))
+                button.bind("<Button-1>", lambda event, row=row, desc=desc, btn=button: increase_counter(event,
+                                                                                                         btn, row, desc,
+                                                                                                         self.buttons,
+                                                                                                         self.id))
+                button.bind("<Button-3>", lambda event, row=row, desc=desc: decrement_counter(event,
+                                                                                              row, desc, self.id))
                 GUI_LIST.append(self)
-

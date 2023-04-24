@@ -2,9 +2,10 @@ import shared_data
 
 
 def increase_counter(event, button, row, desc, buttons, id):
+
     button = event.widget
 
-    #Validating the correct point counter
+    # Validating the correct point counter
     current_obj = next((gui for gui in shared_data.GUI_LIST if gui.id == id), None)
 
     # Get the current counter value from the counter label widget

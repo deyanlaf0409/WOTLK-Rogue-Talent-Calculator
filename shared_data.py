@@ -15,13 +15,12 @@ def reset_counters():
     for gui in GUI_LIST:
         gui.points = 0
         for button in gui.buttons:
-            count = int(button.counter["text"].split('/')[0])
             max_count = int(button.counter["text"].split('/')[1])
             button.counter["text"] = f"0/{max_count}"
 
 
 def reset():
-    global AVAILABLE_POINTS, total_points
+    global AVAILABLE_POINTS
     AVAILABLE_POINTS = 71
     update_available_points_label(AVAILABLE_POINTS)
     reset_counters()
